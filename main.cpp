@@ -37,6 +37,7 @@ int main() {
 
   // used to compute the RMSE later
   Tools tools;
+  // std::cout << "Accuracy - RMSE:" << std::endl << tools.CalculateRMSE(estimations, ground_truth) << std::endl;
   vector<VectorXd> estimations;
   vector<VectorXd> ground_truth;
 
