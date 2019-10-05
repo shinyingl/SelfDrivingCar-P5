@@ -3,10 +3,6 @@
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
 
-/* 
- * Please note that the Eigen library does not initialize 
- *   VectorXd or MatrixXd objects with zeros upon creation.
- */
 
 KalmanFilter::KalmanFilter() {}
 
@@ -33,7 +29,7 @@ void KalmanFilter::Predict() {
 
 void KalmanFilter::Update(const VectorXd &z) {
   /**
-   * TODO: update the state by using Kalman Filter equations
+   * update the state by using Kalman Filter equations
    */
   VectorXd z_pred = H_ * x_;
   VectorXd y = z - z_pred;  // y = z-Hx'  (VectorXd)
@@ -78,7 +74,7 @@ VectorXd Cart2Polar(const VectorXd &x_state){
 
 void KalmanFilter::UpdateEKF(const VectorXd &z) {
   /**
-   * TODO: update the state by using Extended Kalman Filter equations
+   * update the state by using Extended Kalman Filter equations
    */
   
   VectorXd z_pred = Cart2Polar(x_);  
