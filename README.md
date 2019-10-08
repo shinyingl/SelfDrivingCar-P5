@@ -6,29 +6,30 @@ Utilize a Kalman filter program in C++ to estimate the state of a moving object 
 
 Measurments vs. EKF Estimation
 ---
-- Green Triangle: Estimation from Kalman filter
-- Blue Circle: Radar measurements with an arrow pointing in the direction of the observed angle
-- Red Circle: lidar measurements
+- The EKF estimation is shown as the animations below:
+  - Green Triangle: Estimation from Kalman filter
+  - Blue Circle: Radar measurements with an arrow pointing in the direction of the observed angle
+  - Red Circle: lidar measurements
 - px, py, vx, vy output coordinates have an RMSE <= [.11, .11, 0.52, 0.52] with radar + lidar
-- lidar only provides a higher accuracy compared to radar only
-- lidar has a higher resolution compared to radar because of the shorter wavelength 
-- fusion of lidar and radar should provide a good estimation on location px, py and speed vx, vy
+- Using only Lidar data provides a higher accuracy compared using Radar data only
+- Lidar has a higher resolution compared to radar because of the shorter wavelength, but is also more sensitive to small particles. Radar on the other hand provides information in direct velocity inforamtion. 
+- Fusion of both Lidar and Radar data provides a good estimation on location px, py and speed vx, vy
 
-|            Sensor type           |  LIDAR |    RADAR  |  
-|:--------------------------------:|:---------------:|:-----------------:|
-|      Wavelength Range            | IR/visible ~1um |  radio wave ~1cm  |
-|      Direct Velocity Info        | no          |  yes, through doppler effect  |
+|            Sensor type           |  LIDAR          |    RADAR           |  
+|:--------------------------------:|:---------------:|:------------------:|
+|      Wavelength Range            | IR/visible ~1um |  radio wave ~1cm   |
+|      Direct Velocity Info        | no              |  yes, through doppler effect  |
+|      Weather                     | affected by fog and rain | not affected by afferted weather|
 
 
 
-
-## 1. radar + lidar
+## 1. Radar + Lidar
 ![ANIMATION](READMEimage/test8.gif)
-## 2. lidar only
+## 2. Lidar only
 
 ![ANIMATION](READMEimage/laser.gif)
 
-## 3. radar only
+## 3. Radar only
 
 ![ANIMATION](READMEimage/radar.gif)
 
